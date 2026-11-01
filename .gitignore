@@ -1,0 +1,17 @@
+# Arduino / embedded build output
+build/
+*.elf
+*.hex
+*.bin
+
+# Python cache / environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
