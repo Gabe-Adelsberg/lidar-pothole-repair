@@ -32,6 +32,7 @@ The detection and volume-analysis algorithms were developed collaboratively by t
 - Servo-controlled dispenser
 - C++ / Arduino firmware
 - Python-based LiDAR processing
+- NumPy / SciPy / Matplotlib
 - Point-cloud geometry
 
 ## Algorithms Used by the Team
@@ -43,6 +44,7 @@ The sensing subsystem used techniques including:
 - Adaptive Breakpoint Detection for geometry segmentation
 - Douglas-Peucker curve simplification
 - Pothole detection and volume estimation
+- Convex-hull geometry for volume analysis
 
 ## Results
 
@@ -62,20 +64,36 @@ lidar-pothole-repair/
 ├── README.md
 ├── gantry/
 │   └── gantry_controller.ino
+├── lidar-processing/
+│   ├── README.md
+│   ├── LICENSE
+│   ├── abd.py
+│   ├── convert_to_3d_cloud.py
+│   ├── convex_hull.py
+│   ├── douglas_peucker.py
+│   ├── lidar_data.py
+│   ├── lidar_init.py
+│   └── test_angle.py
 ├── docs/
 │   └── project-summary.md
 └── .gitignore
 ```
 
-## Source-Code Note
+## LiDAR Source-Code Provenance
 
-The original project materials are distributed across archived research files. The gantry firmware in this repository is a cleaned version of the Arduino control logic preserved in the project notes. I have intentionally not recreated or claimed ownership of missing LiDAR-processing source files that were not preserved in my personal archive.
+The original LiDAR-processing source has been recovered from the team's public repository and preserved in `lidar-processing/` substantially as originally published.
+
+Original team repository: https://github.com/rahulc07/gset-lidar
+
+Related publication: https://ieeexplore.ieee.org/document/10937641
+
+The recovered source includes the RPLidar acquisition pipeline, Adaptive Breakpoint Detection, Douglas-Peucker simplification, 2D-to-3D point conversion, and convex-hull volume analysis. Because this was collaborative team work, the inclusion of these files here does not imply sole authorship. The original copyright and license notice is preserved in `lidar-processing/LICENSE`.
 
 ## Future Improvements
 
-- Recover and archive the original Raspberry Pi / LiDAR source code
 - Add system wiring and block diagrams
 - Add photographs and video of the prototype
 - Improve calibration of volume estimation
 - Reduce false-positive detections
 - Add closed-loop position feedback to the dispenser system
+- Refactor the recovered research code into a reproducible, documented Python environment
